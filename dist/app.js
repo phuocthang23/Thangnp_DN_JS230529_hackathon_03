@@ -96,10 +96,12 @@ function deletePlayer(id) {
 function higherPlayer() {
     const allScore = scoreBoard.map((item) => item.point);
     const maxScore = Math.max(...allScore);
-    let trophy = scoreBoard.filter((item) => item.point === maxScore);
-    for (let index = 0; index < trophy.length; index++) {
-        console.log(trophy[index].id);
-        const nameElement = document.getElementById(`${trophy[index].id}`);
-        nameElement.style.color = "red";
+    if (maxScore > 0) {
+        let trophy = scoreBoard.filter((item) => item.point === maxScore);
+        for (let index = 0; index < trophy.length; index++) {
+            console.log(trophy[index].id);
+            const nameElement = document.getElementById(`${trophy[index].id}`);
+            nameElement.style.color = "red";
+        }
     }
 }

@@ -117,11 +117,13 @@ function higherPlayer() {
 
   const maxScore: number = Math.max(...allScore);
 
-  let trophy = scoreBoard.filter((item: any) => item.point === maxScore);
+  if (maxScore > 0) {
+    let trophy = scoreBoard.filter((item: any) => item.point === maxScore);
 
-  for (let index = 0; index < trophy.length; index++) {
-    console.log(trophy[index].id);
-    const nameElement = document.getElementById(`${trophy[index].id}`) as HTMLElement;
-    nameElement.style.color = "red";
+    for (let index = 0; index < trophy.length; index++) {
+      console.log(trophy[index].id);
+      const nameElement = document.getElementById(`${trophy[index].id}`) as HTMLElement;
+      nameElement.style.color = "red";
+    }
   }
 }
